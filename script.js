@@ -49,6 +49,8 @@ let operator = '';
 
 function operate(op) {
 
+  if(!scrn.value) return false;
+
   operator = op.textContent.trim();
 
   if (/\d+\W+\d+$/.test(scrn.value)) {

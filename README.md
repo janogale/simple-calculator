@@ -1,7 +1,7 @@
 
-#simple-calculator
+# simple-calculator
 
-Simple JavaScript Calculator.
+### Simple JavaScript Calculator.
 
 this is simple JavaScript Calculator for basic Calculator functions.
 

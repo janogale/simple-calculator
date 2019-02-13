@@ -72,21 +72,25 @@ function calculate(e) {
   inputs = scrn.value.split(/\D/);
   let first = inputs[0];
   let second = inputs[1];
-  //if no operator return 0
+
+  //clear screen if equal double clicked
+
+  if( !/\d+[\+\-\*\÷]\d+/.test( scrn.value ) )  return;
   
-  if(!operator){ scrn.value = 0; }
+  if(!first && !second){ console.log('empty!'); }
   
   // calculate result and display
   switch (operator) {
     case '+':
       scrn.value = parseInt(first) + parseInt(second);
+      console.log('hello');
       break;
     case '-':
       scrn.value = parseInt(first) - parseInt(second);
       break;
     case '÷':
       let result = parseInt(first) / parseInt(second);
-      scrn.value = result.toFixed(3);
+      scrn.value = isInt(result) ? result : result.toFixed(3);
       break;
     case '*':
       scrn.value = parseInt(first) * parseInt(second);
@@ -94,7 +98,13 @@ function calculate(e) {
     default:
       scrn.value = 0;
   }
+
+ 
 }
 
+// true if value is integer otherwise false. 
+function isInt(n){
+  return Number(n) === n && n % 1 === 0;
+}
 
 equal.addEventListener('click', calculate);

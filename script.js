@@ -10,7 +10,8 @@ let scrn = document.getElementById('scrn');
 let cancel = document.getElementById('c');
 let equal = document.getElementById('equal');
 let form = document.querySelector('form');
-
+let inputs = [];
+let operator = '';
 
 
 
@@ -44,8 +45,6 @@ function addValue(btn) {
 
 // functon for operators.
 
-let inputs = [];
-let operator = '';
 
 function operate(op) {
 
@@ -73,7 +72,10 @@ function calculate(e) {
   inputs = scrn.value.split(/\D/);
   let first = inputs[0];
   let second = inputs[1];
-
+  //if no operator return 0
+  
+  if(!operator){ scrn.value = 0; }
+  
   // calculate result and display
   switch (operator) {
     case '+':
